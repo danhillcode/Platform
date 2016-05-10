@@ -1,0 +1,82 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :"Are you a teacher or a student?" %><br />
+    <%= f.text_field :type, autofocus: true %>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :second_name %><br />
+    <%= f.text_field :second_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qualifications %><br />
+    <%= f.text_field :qualifications, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :english_level %><br />
+    <%= f.text_field :english_level, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nationality %><br />
+    <%= f.text_field :nationality, autofocus: true %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+<!-- 
+    t.string   "type" ---------------
+    t.string   "first_name"
+    t.string   "second_name"
+    t.string   "qualifications"
+    t.string   "english_level"
+    t.string   "location"
+    t.integer  "age"
+    t.string   "gender"
+    t.string   "nationality" -->
