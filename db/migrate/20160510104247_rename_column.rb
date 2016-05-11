@@ -1,5 +1,5 @@
 class RenameColumn < ActiveRecord::Migration
   def change
-  rename_column :lectures, :teacher_id, :user_id
+  rename_column :lectures, :user_id, :teacher_id,
   end
 end
