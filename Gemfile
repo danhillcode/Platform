@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+
+gem 'jquery-ui-rails'
+
+gem 'bootstrap_form'
+
 gem 'devise'
 
 gem 'pry'
@@ -47,3 +52,7 @@ group :development do
   gem 'spring'
 end
 
+
+group :assets do
+	gem 'jquery-ui-rails'
+end
