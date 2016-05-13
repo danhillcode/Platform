@@ -12,27 +12,46 @@ You are in <%= @user.location %>
   	<h2>Nobody logged in</h2>
 <% end %>
 
-
-
-
-
-
-<br>
 <p>Add a lecture for your students here</p>
 
 
 
 <%= link_to "<button>Create a new lecture</button>".html_safe, new_teacher_lecture_path(@user), :id => "button_id", :class => "button_class" %>
 
-<table class="table">
-	<% @lectures.each do |lecture| %>
-    <thead>
-	    <tr>
-	      <th>Class title: <%= lecture.topic %><td></th>
-	      <th>Your class is on: <%= lecture.time %><td></th>
-	      <th>Hangout Link:  <%= link_to lecture.hangoutId, lecture.hangoutId %> <td></th>
-        
 
-	    </tr>
-    </thead>
-<% end %>
+ 
+<div class="teacher_table1">
+  <div class="teacher_table2">
+   <div class="teacher_table3">
+    
+    <table id="Tit" class='table table-bordered'>
+      <thead>    
+        <tr>
+        <th>Class</th>
+        <th>Time</th>
+        <th>Hangout</th>     
+        <th>Delete</th>  
+        <th>Edit</th>  
+          
+        </tr>
+      </thead>
+     
+
+     <tbody>
+      <% @lectures.each do |lecture| %>
+          <tr>
+            <td><%= lecture.topic %></td>
+            <td><%= lecture.time %></td>
+            <td><%= link_to lecture.hangoutId, lecture.hangoutId %> </td>
+            <td> <%= link_to "Delete", :method => :destroy%></td>         
+            <td> <%= link_to "Edit", :method => :edit%></td>                  
+          </tr>
+      <% end %>
+      
+      </tbody>
+    </table>
+
+
+   </div>
+  </div>
+</div>

@@ -1,5 +1,16 @@
 class TeachersController < ApplicationController
 
+
+	def destroy
+		binding.pry
+		
+		
+	 #Teacher.find_by(id: params[:teacher_id].lectures.find_by(id: params[:teacher_id]).destroy
+	end
+
+
+
+
 	def show
 		# @teacher = User.find(params[:id])
 		@teacher = current_user
