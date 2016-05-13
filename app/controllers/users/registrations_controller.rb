@@ -1,6 +1,16 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
 
+  # The path used after sign up.
+   
+
+ def after_sign_up_path_for(resource)
+    if resource.type == "Teacher"# student_path(resource)
+     teacher_dashboard_path
+    else 
+     student_dashboard_path
+    end
+  end
 
 
 
@@ -57,14 +67,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # The path used after sign up.
-   
-
-  def after_sign_in_path_for(resource)
-    #if resource.type = teacher# student_path(resource)
-    #redirect_to
-    teacher_path(resource)
-  end
 
 
   # The path used after sign up for inactive accounts.

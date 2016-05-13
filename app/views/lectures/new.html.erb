@@ -1,23 +1,19 @@
 
-
-
-
- <table class="table table-striped">
- <% @show_lecture.each do |lecture, number| %>
-   <tr class="<%= lecture.topic %>">
-     <td><%= lecture.topic %></td>
-   </tr>
-	 <tr class="<%= lecture.id %>">
-     <td><%= lecture.id %></td>
-   </tr>
- <% end %>
- </table>
-
-
-
-
-
 <h1>Make a new lecture</h1>
+
+
+	<h4>Click here to create a link for your class.</h4>
+     <form action="https://plus.google.com/hangouts/_" method = "GET">
+    <!-- Add the form fields for Name, Occupation, and Weapon -->
+       <input type="hidden" name="gid" value="1295"/>
+       <select name = "gd">
+         <option>Hangouts</option>
+       </select>
+
+      <input type="submit"/>
+      </form>
+
+
 
 <div>
 <%= bootstrap_form_for [@teacher, @lecture], url:  teacher_lectures_path do |f| %>
@@ -38,3 +34,4 @@
 
 
 <%= link_to "<button>Go back to your profile</button>".html_safe, user_session_path, :id => "button_id", :class => "button_class" %>
+
