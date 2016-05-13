@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/home' => 'users#index'  
   devise_for :users, controllers: { sessions: "users/sessions" }
   
+  get '/teacher/dashboard' => 'teachers#dashboard'
+  get '/student/dashboard' => 'students#dashboard'
 
 
   resources :teachers  do

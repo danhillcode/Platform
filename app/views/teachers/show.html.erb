@@ -2,6 +2,10 @@ Welcome <%= @teacher.first_name %> <br>
 You are in <%= @teacher.location %>
 
 
+<% @lectures.each do |lecture| %>
+<p> <%= lecture.topic %> </p>
+<% end %>
+
 <% if user_signed_in? %>
  	<h2>Welcome <%= @teacher.first_name %>!</h2>
 	 <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>

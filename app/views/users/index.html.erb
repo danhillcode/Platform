@@ -4,7 +4,7 @@
 
 
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>Online Learning Platform</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,11 +27,14 @@
 </head>
 
 <body id="page-top" class="index">
-
+                
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
+   
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
+
+    <%= image_tag("logo2.png",:size => "100x75", :alt => "our logo") %>
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -39,7 +42,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Habibi English</a>
+
+                
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,11 +73,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                <%= image_tag("logo2.png",:size => "200x150", :alt => "our logo") %>
                     <div class="intro-text">
-                        <span class="name">Habibi English</span>
+                        <span class="name">Welcome to Habibi English</span>
+                        <span class="skills">مرحبا</span>
+
                         <hr class="star-light">
-                        <span class="skills"><br>Learn English today</span>
+                        <span class="skills"><br>Learn English online today</span>
+                       
                     </div>
                 </div>
             </div>
@@ -85,7 +91,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
+                    <h2>Our students</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -97,7 +103,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
+                        <%= image_tag("UAE-boys.jpg",:size => "250x100", :alt => "our logo") %>
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -107,7 +113,8 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
+                        <%= image_tag("saudi-arabia-women.jpg",:size => "250x100", :alt => "our logo") %>
+                    
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -117,7 +124,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
+                         <%= image_tag("saudi-boys.jpg",:size => "250x100", :alt => "our logo") %>
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -127,7 +134,6 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -137,7 +143,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
+                      <!--  image-here -->
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -147,8 +153,8 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
+                         <!--  image-here -->
+                          </a>
                 </div>
             </div>
         </div>
@@ -165,14 +171,23 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    <p>'Habibi English' is a digital education platform that aims to improve educational experiences in the 
+Arab world. The platform aims to increase access to English
+teachers for students in Arab countries. The benefit of using our services is that we guarantee
+culturally sensitive lessons, all teachers are trained and respect the Muslim faith.
+We have respectful teachers that will provide high quality 
+lessons for students. </p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                    <p> The classes are live and 
+individual feedback can be provided.
+This platform allows users to have classes with upto six students, shared class costs makes it
+cheaper than other class types also students can have classes with their friends or 
+family members. Whatever your reason to learn English, whether it be for making friends, improving job prospects or gaining entry to international universities - we can help you, join us today.</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
+                        
                     </a>
                 </div>
             </div>
@@ -184,7 +199,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
+                    <h2>Contact Us</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -241,7 +256,7 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <p>Manchester<br>England, United Kingdom</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Around the Web</h3>
@@ -264,8 +279,8 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <h3>About Habibi English</h3>
+                        <p>We are an online Enlish school helping students achieve their goals.  </p>
                     </div>
                 </div>
             </div>
@@ -274,7 +289,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2014
+                        Copyright &copy; Habibi English 2016
                     </div>
                 </div>
             </div>
@@ -496,7 +511,7 @@
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    <strong><a href="http://startbootstrap.com">May 2016</a>
                                     </strong>
                                 </li>
                                 <li>Service:
@@ -531,47 +546,3 @@
     <script src="js/freelancer.js"></script>
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- *This is the form to add an address input from class  
-<h1>Add a new contact</h1>
-<form action="/contacts" method="POST">
-  <div>
-    <label for="contact_name">Name</label>
-    <input type="text" name="contact[name]" id="contact_name">
-  </div>
-
-  <div>
-    <label for="contact_address">Address</label>
-    <textarea name="contact[address]" id="contact_address"></textarea>
-  </div>
-
-  <div>
-    <label for="contact_phone">Phone number</label>
-    <input type="tel" name="contact[phone]" id="contact_phone">
-  </div>
-
-  <div>
-    <label for="contact_email">Email</label>
-    <input type="email" name="contact[email]" id="contact_email">
-  </div>
-  <button type="submit">Add this contact</button>
-   <input type="hidden" name="authenticity_token"
-      value="<%= form_authenticity_token %>">
-</form> -->
-
