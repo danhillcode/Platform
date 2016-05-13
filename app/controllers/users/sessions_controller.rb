@@ -3,9 +3,11 @@ class Users::SessionsController < Devise::SessionsController
   before_action :authenticate_users!, only: :show
 
   def after_sign_in_path_for(resource)
-    #if resource.type = teacher# student_path(resource)
-    #redirect_to
-    teacher_path(resource)
+    if resource.type == "Teacher"# student_path(resource)
+     teacher_dashboard_path
+    else 
+     student_dashboard_path
+    end
   end
 
 

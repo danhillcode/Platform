@@ -1,13 +1,11 @@
-Welcome <%= @teacher.first_name %> <br>
-You are in <%= @teacher.location %>
+Welcome <%= @user.first_name %> <br>
+You are in <%= @user.location %>
 
 
-<% @lectures.each do |lecture| %>
-<p> <%= lecture.topic %> </p>
-<% end %>
+
 
 <% if user_signed_in? %>
- 	<h2>Welcome <%= @teacher.first_name %>!</h2>
+ 	<h2>Welcome <%= @user.first_name %>!</h2>
 	 <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
 
 <% else %>
@@ -32,4 +30,15 @@ You are in <%= @teacher.location %>
 
 
 
-<%= link_to "<button>Create a new lecture</button>".html_safe, new_teacher_lecture_path(@teacher), :id => "button_id", :class => "button_class" %>
+<%= link_to "<button>Create a new lecture</button>".html_safe, new_teacher_lecture_path(@user), :id => "button_id", :class => "button_class" %>
+
+<table class="table">
+	<% @lectures.each do |lecture| %>
+    <thead>
+	    <tr>
+	      <th>Class title: <%= lecture.topic %><td></th>
+	      <th>Your class is on: <%= lecture.time %><td></th>
+	      <th>Hangout Link: <%= link_to lecture.hangoutId %><td></th>
+	    </tr>
+    </thead>
+<% end %>

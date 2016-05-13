@@ -1,9 +1,21 @@
-<p>Welcome</p>
-
-<br>
-<br>
-<br>
-<br>
 
 
+<p>Welcome <%= @user.first_name %></p>
 
+
+<table class="table">
+<% @lectures.each do |lecture| %>
+
+  <thead>
+    <tr>
+      <th>Class title: <%= lecture.topic %><td></th>
+      <th>Your class is on: <%= lecture.time %><td></th>
+      <th>Hangout Link: <%= link_to lecture.hangoutId %><td></th>
+    </tr>
+  </thead>
+
+
+
+
+
+<% end %>

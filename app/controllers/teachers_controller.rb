@@ -8,11 +8,9 @@ class TeachersController < ApplicationController
 
 	def dashboard
 		if user_signed_in? 
-			
-			@teacher = current_user
+			@user = current_user
 			@lectures = current_user.lectures
 			render 'teachers/show'
-			
 		else
 			redirect_to new_user_session_path
 		end
