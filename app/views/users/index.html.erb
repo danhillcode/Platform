@@ -4,8 +4,7 @@
 
 
 
-    <title>Online Learning Platform</title>
-
+<head>
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,16 +25,20 @@
 
 </head>
 
+    
+
 <body id="page-top" class="index">
                 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
    
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="logo">
+                  <%= image_tag("logo2.png",:size => "100x75", :alt => "our logo") %>
+                <div>
 
-    <%= image_tag("logo2.png",:size => "100x75", :alt => "our logo") %>
-            <div class="navbar-header page-scroll">
+                        <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -61,6 +64,14 @@
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
+                    <li class="page-scroll">
+                    <%= link_to 'Login', new_user_session_path, method: 'GET' %>
+                    </li>
+                    <li class="page-scroll">
+                    <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
+                    </li>
+                    
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

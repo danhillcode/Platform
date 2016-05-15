@@ -1,15 +1,138 @@
 
+<!DOCTYPE html>
+<html lang="en">
 
-<p>Welcome <%= @user.first_name %></p>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        <%= @user.first_name %>  <%= @user.second_name %> 
+                    </a>
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1><%= @user.first_name %>'s profile</h1>
+                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens.</p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Hide Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
 
 
-<table class="table">
-	<% @lectures.each do |lecture| %>
-    <thead>
-	    <tr>
-	      <th>Class title: <%= lecture.topic %><td></th>
-	      <th>Your class is on: <%= lecture.time %><td></th>
-	      <th>Hangout Link: <%= link_to lecture.hangoutId, lecture.hangoutId %><td></th>
-	    </tr>
-    </thead>
-<% end %>
+ 
+<div class="teacher_table1">
+  <div class="teacher_table2">
+   <div class="teacher_table3">
+    
+    <table id="Tit" class='table table-bordered'>
+      <thead>    
+        <tr>
+        <th>Class</th>
+        <th>Time</th>
+        <th>Hangout</th>     
+        <th>Delete</th>  
+        <th>Edit</th>  
+          
+        </tr>
+      </thead>
+     
+
+     <tbody>
+      <% @lectures.each do |lecture| %>
+          <tr>
+            <td><%= lecture.topic %></td>
+            <td><%= lecture.time %></td>
+            <td><%= link_to lecture.hangoutId, lecture.hangoutId %> </td>
+            <td> <%= link_to "Delete???JS", :method => :destroy%></td>         
+                            
+          </tr>
+      <% end %>
+      
+      </tbody>
+    </table>
+
+
+   </div>
+  </div>
+</div>

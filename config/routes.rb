@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get '/home' => 'users#index'  
   devise_for :users, controllers: { sessions: "users/sessions" }
+
+  #get '/teachers/:teacher_id/lectures/:id'
+
   
   get '/teacher/dashboard' => 'teachers#dashboard'
   get '/student/dashboard' => 'students#dashboard'

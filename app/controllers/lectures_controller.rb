@@ -11,10 +11,6 @@ require'pry'
 		@show_lecture = Lecture.all
 		@teacher = current_user
 		@lecture = Lecture.new
-		@items = [1,2,3,4]
-
-		
-    
 	end
 
 	def create
@@ -32,7 +28,7 @@ require'pry'
 
 		
 		
-		render 'show'
+		redirect_to user_session_path
 	end
 	
 

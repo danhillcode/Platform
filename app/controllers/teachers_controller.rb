@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
 
 
 	def destroy
-		binding.pry
+		
 		
 		
 	 #Teacher.find_by(id: params[:teacher_id].lectures.find_by(id: params[:teacher_id]).destroy
@@ -18,14 +18,18 @@ class TeachersController < ApplicationController
 	end
 
 	def dashboard
-		if user_signed_in? 
-			@user = current_user
-			@lectures = current_user.lectures
-			render 'teachers/show'
-		else
-			redirect_to new_user_session_path
-		end
+					
+			if user_signed_in? && current_user.type == "Teacher"
+  
+				@user = current_user
+				@lectures = current_user.lectures
+				render 'teachers/show'
+			else
+				redirect_to new_user_session_path
+		    end
+		
 	end
+
 
 
 
