@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  post 'student/dashboard' => 'students#remove'
+  post 'teacher/dashboard' => 'teachers#destroy'
+  
+  get 'teacher/edit' => 'teachers#edit'
+
+  post '/add_class' => 'students#edit'
+
+
+  get '/index' => 'students#index'
   get '/home' => 'users#index'  
   devise_for :users, controllers: { sessions: "users/sessions" }
 

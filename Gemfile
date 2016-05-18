@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'timepiece'
 
-gem 'jquery-ui-rails'
+
 
 gem 'bootstrap_form'
 

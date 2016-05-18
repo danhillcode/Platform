@@ -1,8 +1,12 @@
+<head>
+</head>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Profile page</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +32,6 @@
 </head>
 
 <body>
-
 
 
 
@@ -57,7 +60,7 @@
                    
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#"></a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
@@ -76,14 +79,16 @@
                     <div class="col-lg-12">
                         <h1><%= @user.first_name %>'s profile</h1>
                         
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens.</p>
+                       
+                        <p>This is your profile page, you can add classes and remove them. I hope you enjoy using the site</p>
+
                         
 
                         <p>Add a lecture for your students here, just click the create a new lecture link in the sidebar.</p>
 
                         
 
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Hide Menu</a>
+                        <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Current time</a>
                     </div>
                 </div>
             </div>
@@ -109,8 +114,20 @@
 
 </body>
 
-</html>
- 
+         <div><strong>
+                 The current UTC date is <%= Time.now.strftime("%m/%d/%Y") %> 
+                 <br>
+                 The current times around the world
+                 <br>
+                 UTC: <%= timepiece( type: '12', abbr_sep: '.') %> 
+                 <br>
+                London: <%= timepiece('London', type: '12', abbr_sep: '.') %>
+                <br>
+                Riyadh: <%= timepiece('Riyadh', type: '12', abbr_sep: '.') %>
+                <br>
+        </strong></div>
+
+
 <div class="teacher_table1">
   <div class="teacher_table2">
    <div class="teacher_table3">
@@ -132,10 +149,14 @@
       <% @lectures.each do |lecture| %>
           <tr>
             <td><%= lecture.topic %></td>
-            <td><%= lecture.time %></td>
+            <td><%= lecture.time.getlocal unless lecture.time.nil? %></td>
             <td><%= link_to lecture.hangoutId, lecture.hangoutId %> </td>
-            <td> <%= link_to "Delete???JS", :method => :destroy%></td>         
-            <td> <%= link_to "Edit", :method => :edit%></td>                  
+              
+            <td><%= button_to "Delete Class", :method => :destroy, :lecture_id => lecture.id %>
+
+            <td><%= link_to 'Edit Class', edit_teacher_lecture_path(lecture.teacher_id, lecture.id) %>  
+              
+                           
           </tr>
       <% end %>
       

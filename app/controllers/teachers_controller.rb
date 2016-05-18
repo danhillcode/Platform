@@ -1,24 +1,22 @@
 class TeachersController < ApplicationController
-
+require 'pry'
 
 	def destroy
-		
-		
-		
-	 #Teacher.find_by(id: params[:teacher_id].lectures.find_by(id: params[:teacher_id]).destroy
+		lecture_id = params[:lecture_id]
+		#binding.pry
+		current_user.lectures.find_by_id(lecture_id).destroy
+		redirect_to user_session_path
 	end
-
 
 
 
 	def show
 		# @teacher = User.find(params[:id])
 		@teacher = current_user
-		render 'teachers/show'
+		redirect_to teachers_show_path
 	end
 
-	def dashboard
-					
+	def dashboard			
 			if user_signed_in? && current_user.type == "Teacher"
   
 				@user = current_user
@@ -27,12 +25,7 @@ class TeachersController < ApplicationController
 			else
 				redirect_to new_user_session_path
 		    end
-		
 	end
-
-
-
-
 
 	def new
   		@teacher =  Teacher.find(params[:id])

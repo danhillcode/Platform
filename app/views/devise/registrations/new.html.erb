@@ -1,7 +1,13 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Sign up</h1>
+  </div>
+  <p class="lead">Sign up and get ready to learn English with our team.</p>
+</div>
 
-<body style="background-color:#18bc9c;">
 
-<h2>Sign up</h2>
+
+
 
 
 
@@ -69,9 +75,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>
 
@@ -79,13 +85,6 @@
 
 <%= render "devise/shared/links" %>
 
-<!-- 
-    t.string   "type" ---------------
-    t.string   "first_name"
-    t.string   "second_name"
-    t.string   "qualifications"
-    t.string   "english_level"
-    t.string   "location"
-    t.integer  "age"
-    t.string   "gender"
-    t.string   "nationality" -->
+
+<body style="background-color:#18bc9c; text-align: center; position: center;">
+

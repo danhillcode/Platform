@@ -1,0 +1,30 @@
+
+<div>
+<%= bootstrap_form_for [@teacher, @lecture] do |f| %>
+  
+  <%= f.text_field :topic %><br />
+
+  <%= f.datetime_local_field :time %><br />  
+
+  <%= f.text_field :hangoutId %><br />
+
+  <%= f.text_field :studentAmount %><br />
+
+  <%= f.submit :class => 'btn btn-primary' %>
+
+
+<% end %>
+</div>
+
+<br>
+
+
+
+
+<%= button_to "Go back to your profile", user_session_path, :id => "button_id", :class => 'btn btn-primary'%>
+
+</body>
+
+
+<body style="background-color:#18bc9c; text-align: center; position: center;">
+

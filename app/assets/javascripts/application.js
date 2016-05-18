@@ -14,6 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require timepiece
+
 //= require_tree .
 
 

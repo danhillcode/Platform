@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+*= require 'timepiece'
 
  *= require rails_bootstrap_forms
 
  */
+

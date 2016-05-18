@@ -1,0 +1,41 @@
+<h1>See all lectures</h1>
+
+ <%= button_to 'Back to my Profile', user_session_path, method: 'GET' %>
+
+<div class="teacher_table1">
+  <div class="teacher_table2">
+   <div class="teacher_table3">
+    
+    <table id="Tit" class='table table-bordered'>
+      <thead>    
+        <tr>
+        <th>Class</th>
+        <th>Time</th>
+        <th>Hangout</th>     
+        <th>Add a class</th>     
+         
+          
+        </tr>
+      </thead>
+     
+
+     <tbody>
+      <% @lectures.each do |lecture| %>
+          <tr>
+
+            <td><%= lecture.topic %></td>
+            <td><%= lecture.time %></td>
+            <td><%= link_to lecture.hangoutId, lecture.hangoutId %> </td>
+            <td><%= button_to "Add class", action: "edit", :lecture_id => lecture.id %></td>
+                    
+                           
+          </tr>
+      <% end %>
+      
+      </tbody>
+    </table>
+
+
+   </div>
+  </div>
+</div>

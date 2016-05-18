@@ -1,20 +1,3 @@
-<body>
-<h1>Make a new lecture</h1>
-
-
-	<h4>Create a link for your class.</h4>
-     <form target="_blank" action="https://plus.google.com/hangouts/_" method = "GET">
-    <!-- Add the form fields for Name, Occupation, and Weapon -->
-       <input type="hidden" name="gid" value="1295"/>
-       <select name = "gd">
-         <option>Hangouts</option>
-       </select>
-
-      <input type="submit"/>
-      </form>
-
-
-
 
 <div>
 <%= bootstrap_form_for [@teacher, @lecture], url:  teacher_lectures_path do |f| %>
