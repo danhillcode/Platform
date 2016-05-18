@@ -9,7 +9,8 @@ require 'pry'
 			if user_signed_in? && current_user.type == "Student"
   
 			@user = current_user
-			@lectures = current_user.lectures
+			@lectures = current_user.lectures.all#.select(&:time).sort_by(&:time).reverse
+			@lecture_next = current_user.lectures.max_by {|o| o[:datetime]}
 			render 'students/show'
 		else
 			redirect_to new_user_session_path
@@ -17,7 +18,13 @@ require 'pry'
 	end
 
 	def index
-		@lectures = Lecture.all
+		# @lectures = Lecture.all.select(&:time).sort_by(&:time).reverse
+		# @user_lectures = current_user.lectures
+
+
+  		@show_lecture = Lecture.all#.select(&:time).sort_by(&:time).reverse
+		@current_lectures = current_user.lectures.all
+		@answer = @show_lecture - @current_lectures
 	end
 
 	def edit
@@ -26,7 +33,7 @@ require 'pry'
 		current_user.lectures.push(lecture)
 		#Student.push(@lecture)
 		redirect_to user_session_path
-		#binding.pry
+		
 	end
 
 	def remove

@@ -26,7 +26,9 @@ require'pry'
 
 
 	def index
-  		@show_lecture = Lecture.all
+  		 
+
+
 	end
 
 
@@ -37,8 +39,9 @@ require'pry'
 	end
 
 	def create
+			
 		@teacher = Teacher.find_by(id: params[:teacher_id])
-		#@lectuedem6ezgwjfjdommowu3uk3ineere = Lecture.new
+		
 
 		@lecture = params[:lecture]
 		

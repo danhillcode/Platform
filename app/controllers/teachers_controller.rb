@@ -13,14 +13,15 @@ require 'pry'
 	def show
 		# @teacher = User.find(params[:id])
 		@teacher = current_user
-		redirect_to teachers_show_path
+		redirect_to new_user_session_path
 	end
 
 	def dashboard			
 			if user_signed_in? && current_user.type == "Teacher"
   
 				@user = current_user
-				@lectures = current_user.lectures
+				@lecture_next = current_user.lectures.max_by {|o| o[:datetime]}
+				@lectures = current_user.lectures.all#.select(&:time).sort_by(&:time).reverse
 				render 'teachers/show'
 			else
 				redirect_to new_user_session_path

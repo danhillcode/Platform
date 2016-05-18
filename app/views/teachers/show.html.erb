@@ -1,13 +1,4 @@
 <head>
-</head>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,9 +53,8 @@
                 <li>
                     <a href="#"></a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+                
+                
                 <li>
                     <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
                 </li>
@@ -127,6 +117,11 @@
                 <br>
         </strong></div>
 
+                <div align="center">
+                    <h4> Your next lecture topic is: <%=  @lecture_next.topic %><br> 
+                    It will be held at: <%=  @lecture_next.time %> <br>
+                    You can enter the class by clicking this link<%=  link_to Hangout, @lecture_next.hangoutId %> </h4> </h4>
+                </div>
 
 <div class="teacher_table1">
   <div class="teacher_table2">

@@ -19,12 +19,16 @@
 <div>
 <%= bootstrap_form_for [@teacher, @lecture], url:  teacher_lectures_path do |f| %>
   
+   <%= f.label "Class title:"%>
   <%= f.text_field :topic %><br />
 
+  <%= f.label "Date and Time of the class:"%>
   <%= f.datetime_local_field :time %><br />  
 
+  <%= f.label "Your unique hangout id (Generate by clicking the link at the top of the page):"%>
   <%= f.text_field :hangoutId %><br />
 
+  <%= f.label "How many students can attend the class:"%>
   <%= f.text_field :studentAmount %><br />
 
   <%= f.submit :class => 'btn btn-primary' %>

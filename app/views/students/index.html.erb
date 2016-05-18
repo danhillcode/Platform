@@ -1,6 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Profile page</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+
+                <li class="sidebar-brand">
+                    <a href="#">
+                        <%= @current_user.first_name %>  <%= @current_user.second_name %> 
+                    </a>
+                </li>
+                
+                <li>
+                    <%= link_to 'Find a class', index_path %>
+                </li>
+
+                <li>
+                   
+                   <%= link_to 'Back to my profile', user_session_path, method: 'GET' %>
+                </li>
+
+                <li>
+                    <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Find a class</h1>
+                        <p><em>This is your find a class page. You can sign up for a class by pressing the add a class button. Hope you enjoy using the site.</em></p>
+                        <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Current time</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+         <div><strong>
+                 The current UTC date is <%= Time.now.strftime("%m/%d/%Y") %> 
+                 <br>
+                 The current times around the world
+                 <br>
+                 UTC: <%= timepiece( type: '12', abbr_sep: '.') %> 
+                 <br>
+                London: <%= timepiece('London', type: '12', abbr_sep: '.') %>
+                <br>
+                Riyadh: <%= timepiece('Riyadh', type: '12', abbr_sep: '.') %>
+                <br>
+        </strong></div>
+</html>
+
+
+
 <h1>See all lectures</h1>
 
- <%= button_to 'Back to my Profile', user_session_path, method: 'GET' %>
 
 <div class="teacher_table1">
   <div class="teacher_table2">
@@ -20,18 +128,20 @@
      
 
      <tbody>
-      <% @lectures.each do |lecture| %>
-          <tr>
 
+
+      <% @answer.each do |lecture| %>
+          <tr>
+                 
             <td><%= lecture.topic %></td>
             <td><%= lecture.time %></td>
             <td><%= link_to lecture.hangoutId, lecture.hangoutId %> </td>
-            <td><%= button_to "Add class", action: "edit", :lecture_id => lecture.id %></td>
-                    
-                           
+            <td class="button"><%= button_to "Register for class", action: "edit", :lecture_id => lecture.id %></td>
+          
           </tr>
+
       <% end %>
-      
+
       </tbody>
     </table>
 
