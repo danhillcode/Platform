@@ -1,9 +1,3 @@
-  
-
-   
-
-
-
 <head>
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,13 +58,16 @@
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
-                    <li class="page-scroll">
-                    <%= link_to 'Login', new_user_session_path, method: 'GET' %>
-                    </li>
+
+                    <% if user_signed_in? %>
                     <li class="page-scroll">
                     <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
                     </li>
-                    
+                    <% else %>
+                    <li class="page-scroll">
+                    <%= link_to 'Login', new_user_session_path, method: 'GET' %>
+                    </li>
+                    <% end %>
 
                 </ul>
             </div>

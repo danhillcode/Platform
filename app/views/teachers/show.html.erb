@@ -67,7 +67,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1><%= @user.first_name %>'s profile</h1>
+                        <p>Welcome <%= @user.first_name %>,</p>
                         
                        
                         <p>This is your profile page, you can add classes and remove them. I hope you enjoy using the site</p>
@@ -104,61 +104,59 @@
 
 </body>
 
-         <div><strong>
+        <div><strong>
                  The current UTC date is <%= Time.now.strftime("%m/%d/%Y") %> 
                  <br>
-                 The current times around the world
-                 <br>
-                 UTC: <%= timepiece( type: '12', abbr_sep: '.') %> 
-                 <br>
-                London: <%= timepiece('London', type: '12', abbr_sep: '.') %>
+                 The current UTC time: <%= timepiece( type: '12', abbr_sep: '.') %> 
                 <br>
-                Riyadh: <%= timepiece('Riyadh', type: '12', abbr_sep: '.') %>
+                The time in Riyadh: <%= timepiece('Riyadh', type: '12', abbr_sep: '.') %>
                 <br>
         </strong></div>
 
-                <div align="center">
-                    <h4> Your next lecture topic is: <%=  @lecture_next.topic %><br> 
-                    It will be held at: <%=  @lecture_next.time %> <br>
-                    You can enter the class by clicking this link<%=  link_to Hangout, @lecture_next.hangoutId %> </h4> </h4>
-                </div>
+        <div align="center">
+                    <p> Your next lecture will be held at: <%=  @lecture_next.time %> <br>
+                    You can enter the class by clicking this link <%=  link_to Hangout, @lecture_next.hangoutId %> </p> <br>
+        <h4>View Your Lectures:</h4>
+        </div>
 
-<div class="teacher_table1">
-  <div class="teacher_table2">
-   <div class="teacher_table3">
-    
-    <table id="Tit" class='table table-bordered'>
-      <thead>    
-        <tr>
-        <th>Class</th>
-        <th>Time</th>
-        <th>Hangout</th>     
-        <th>Delete</th>  
-        <th>Edit</th>  
-          
-        </tr>
-      </thead>
-     
 
-     <tbody>
-      <% @lectures.each do |lecture| %>
-          <tr>
-            <td><%= lecture.topic %></td>
-            <td><%= lecture.time.getlocal unless lecture.time.nil? %></td>
-            <td><%= link_to lecture.hangoutId, lecture.hangoutId %> </td>
+        
+        <div class="teacher_table1">
+          <div class="teacher_table2">
+           <div class="teacher_table3">
+            
+            <table id="Tit" class='table table-bordered'>
+              <thead>    
+                <tr>
+                <th>Class</th>
+                <th>Time</th>
+                <th>Hangout</th>     
+                <th>Delete</th>  
+                <th>Edit</th>  
+                  
+                </tr>
+              </thead>
+             
+
+             <tbody>
+              <% @lectures.each do |lecture| %>
+                  <tr>
+                    <td><%= lecture.topic %></td>
+                    <td><%= lecture.time.getlocal unless lecture.time.nil? %></td>
+                    <td><%= link_to "Enter this lecture", lecture.hangoutId %> </td>
+                      
+                    <td><%= button_to "Delete Class", :method => :destroy, :lecture_id => lecture.id %>
+
+                    <td><%= link_to 'Edit Class', edit_teacher_lecture_path(lecture.teacher_id, lecture.id) %>  
+                      
+                                   
+                  </tr>
+              <% end %>
               
-            <td><%= button_to "Delete Class", :method => :destroy, :lecture_id => lecture.id %>
-
-            <td><%= link_to 'Edit Class', edit_teacher_lecture_path(lecture.teacher_id, lecture.id) %>  
-              
-                           
-          </tr>
-      <% end %>
-      
-      </tbody>
-    </table>
+              </tbody>
+            </table>
 
 
-   </div>
-  </div>
-</div>
+           </div>
+          </div>
+        </div>

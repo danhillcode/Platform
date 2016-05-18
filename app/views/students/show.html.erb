@@ -1,29 +1,25 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>Profile page</title>
+        <title>Profile page</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/simple-sidebar.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
 </head>
 
@@ -41,7 +37,7 @@
                 </li>
                 
                 <li>
-                    <%= link_to 'Find a class', index_path %>
+                    <%= link_to 'Search classes', index_path %>
                 </li>
 
                 <li>
@@ -57,8 +53,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1><%= @user.first_name %>'s profile</h1>
-                        <p><em>This is your profile page. This page allows you to search for classes (find a class) and sign up for classes (Add class button in the find a class page). You can delete a class from your page by pressing the(delete class) button. Hope you enjoy using the site.</em></p>
+                        <p>Welcome <%= @user.first_name %>,</p>
+                        <p><em>This is your profile page. Here you can search for classes and register for classes. You can delete a class from your page by pressing the unregister button. Hope you enjoy using the site.</em></p>
                         <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Current time</a>
                     </div>
                 </div>
@@ -83,61 +79,59 @@
     });
     </script>
 
-</body>
 
-         <div><strong>
+
+       
+        <div><strong>
                  The current UTC date is <%= Time.now.strftime("%m/%d/%Y") %> 
                  <br>
-                 The current times around the world
-                 <br>
-                 UTC: <%= timepiece( type: '12', abbr_sep: '.') %> 
-                 <br>
-                London: <%= timepiece('London', type: '12', abbr_sep: '.') %>
+                 The current UTC time: <%= timepiece( type: '12', abbr_sep: '.') %> 
                 <br>
-                Riyadh: <%= timepiece('Riyadh', type: '12', abbr_sep: '.') %>
+                The time in Riyadh: <%= timepiece('Riyadh', type: '12', abbr_sep: '.') %>
                 <br>
         </strong></div>
-</html>
 
-
-                <div align="center">
-                    <h4> Your next lecture topic is: <%=  @lecture_next.topic %><br> 
-                    It will be held at: <%=  @lecture_next.time %> <br>
-                    You can enter the class by clicking this link <%=  link_to Hangout, @lecture_next.hangoutId %> </h4>
-                </div>
- 
-<div class="teacher_table1">
-  <div class="teacher_table2">
-   <div class="teacher_table3">
-    
-    <table id="Tit" class='table table-bordered'>
-      <thead>    
-        <tr>
-        <th>Class</th>
-        <th>Time</th>
-        <th>Hangout</th>     
-        <th>Delete</th>  
+        
+        <div align="center">
+                    <p> Your next lecture will be held at: <%=  @lecture_next.time %> <br>
+                    You can enter the class by clicking this link <%=  link_to Hangout, @lecture_next.hangoutId %> </p> <br>
+        <h4>View Your Lectures:</h4>
+        </div>
          
-          
-        </tr>
-      </thead>
-     
+        <div class="teacher_table1">
+          <div class="teacher_table2">
+           <div class="teacher_table3">
+            
+            <table id="Tit" class='table table-bordered'>
+              <thead>    
+                <tr>
+                <th>Class</th>
+                <th>Date/Time</th>
+                <th>Link</th>     
+                <th>Deregister</th>  
+                 
+                  
+                </tr>
+              </thead>
+             
 
-     <tbody>
-      <% @lectures.each do |lecture| %>
-          <tr>
-            <td><%= lecture.topic %></td>
-            <td><%= lecture.time %></td>
-            <td><%= link_to lecture.hangoutId, lecture.hangoutId %> </td>         
-            <td><%= button_to "Unregister Class", :method => :remove, :lecture_id => lecture.id %>
-            </td>               
-          </tr>
-      <% end %>
-      
-      </tbody>
-    </table>
+             <tbody>
+              <% @lectures.each do |lecture| %>
+                  <tr>
+                    <td><%= lecture.topic %></td>
+                    <td><%= lecture.time %></td>
+                    <td><%= link_to "Enter this lecture", lecture.hangoutId %> </td>         
+                    <td><%= button_to "Deregister Class", :method => :remove, :lecture_id => lecture.id %>
+                    </td>               
+                  </tr>
+              <% end %>
+              
+              </tbody>
+            </table>
 
 
-   </div>
-  </div>
-</div>
+           </div>
+          </div>
+        </div>
+</body>
+</html>
