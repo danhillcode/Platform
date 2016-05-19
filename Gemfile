@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
+
 gem 'timepiece'
 
-
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 0.15'
 
 gem 'bootstrap_form'
 
@@ -40,10 +43,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
+
+group :assets do
+	gem 'jquery-ui-rails'
+end
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
+
+
+gem 'rails_12factor', group: :production 
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -53,19 +69,5 @@ group :development do
   gem 'spring'
 
   #Added for Heroku
-  gem 'sqlite3'
+  
 end
-
-
-group :production do
-  gem 'pg'
-
-  gem 'rails_12factor'
-end
-
-
-
-group :assets do
-	gem 'jquery-ui-rails'
-end
-
