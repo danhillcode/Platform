@@ -5,6 +5,7 @@ require 'pry'
 		lecture_id = params[:lecture_id]
 		#binding.pry
 		current_user.lectures.find_by_id(lecture_id).destroy
+		flash[:notice] = "Post successfully deleted"
 		redirect_to user_session_path
 	end
 

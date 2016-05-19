@@ -65,6 +65,7 @@
                         <h1>Make a new lecture</h1>
                         
                        <br>
+                       <br>
                     </div>
                 </div>
             </div>
@@ -88,8 +89,7 @@
     });
     </script>
 
-
-    <h4>Create a link for your class.</h4>
+    <p>Create a link for your class - Use the link in the form for Hangout ID.</p>
     <form target="_blank" action="https://plus.google.com/hangouts/_" method = "GET">
            <input type="hidden" name="gid" value="1295"/>
            <select name = "gd">
@@ -109,16 +109,15 @@
       <div>
       <%= bootstrap_form_for [@teacher, @lecture], url:  teacher_lectures_path do |f| %>
         
-        
+         
         <%= f.text_field :topic %><br />
 
-       
+        
         <%= f.datetime_local_field :time %><br />  
 
         
         <%= f.text_field :hangoutId %><br />
 
-        
         <%= f.text_field :studentAmount %><br />
 
         <%= f.submit :class => 'btn btn-primary' %>

@@ -1,5 +1,5 @@
 class Lecture < ActiveRecord::Base
-
+  
 
 
   has_many :lecture_student, :dependent => :destroy

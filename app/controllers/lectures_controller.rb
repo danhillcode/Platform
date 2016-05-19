@@ -39,12 +39,11 @@ require'pry'
 	end
 
 	def create
-			
+
 		@teacher = Teacher.find_by(id: params[:teacher_id])
 		
 
 		@lecture = params[:lecture]
-		
 		@topic = params[:lecture][:topic]
 		@time = params[:lecture][:time]
 		@hangoutId = params[:lecture][:hangoutId]
@@ -52,7 +51,6 @@ require'pry'
 		
 		@teacher.lectures.create(topic: @topic, time: @time, hangoutId: @hangoutId, studentAmount: @studentAmount)
 
-		
 		
 		redirect_to user_session_path
 	end
