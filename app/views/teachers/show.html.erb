@@ -147,10 +147,7 @@
                       
                     <td><%= button_to "Delete Class", :method => :destroy, :lecture_id => lecture.id  %>
 
-                      <% if flash[:notice] %>
-                      <div class="notice"><%= flash[:notice] %></div>
-                     <% end %>
-
+                      
 
                     <td><%= link_to 'Edit Class', edit_teacher_lecture_path(lecture.teacher_id, lecture.id) %>  
                       
